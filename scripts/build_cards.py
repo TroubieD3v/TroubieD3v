@@ -20,7 +20,7 @@ PROJECTS = [
     {
         "slug": "websec-lab",
         "kicker": "playground",
-        "name": "websec-lab",
+        "name": "WebSec-Lab",
         "lines": ["Break vulnerable code, watch the fix", "hold, verify both automatically."],
         "pills": ["12 labs", "OWASP Top 10:2025", "EN / RU"],
         "glow": AMBER,

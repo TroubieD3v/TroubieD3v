@@ -8,11 +8,11 @@
 <table>
   <tr>
     <td width="50%" valign="top">
-      <a href="https://github.com/TroubieD3v/websec-lab"><img src="assets/card-websec-lab.svg" alt="websec-lab: break vulnerable code, watch the fix hold, verify both automatically" width="100%"></a>
+      <a href="https://github.com/TroubieD3v/WebSec-Lab"><img src="assets/card-websec-lab.svg" alt="WebSec-Lab: break vulnerable code, watch the fix hold, verify both automatically" width="100%"></a>
       <p>Twelve labs from SQL injection and XSS to JWT forgery and race conditions. Each runs the vulnerable code and
       its fix side by side, shows the diff, and checks on the server that your attack lands on one and fails on the other.</p>
-      <p><a href="https://github.com/TroubieD3v/websec-lab"><b>Repository</b></a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/websec-lab#quick-start-docker">Quick start</a></p>
+      <p><a href="https://github.com/TroubieD3v/WebSec-Lab"><b>Repository</b></a> &nbsp;·&nbsp;
+      <a href="https://github.com/TroubieD3v/WebSec-Lab#quick-start-docker">Quick start</a></p>
     </td>
     <td width="50%" valign="top">
       <a href="https://github.com/TroubieD3v/AuthScope"><img src="assets/card-authscope.svg" alt="AuthScope: finds authorization bugs in REST APIs by checking who can really reach what" width="100%"></a>
@@ -45,7 +45,7 @@
 <h4 align="center">One idea, four layers</h4>
 
 <p align="center">
-  <b>Code</b>: in websec-lab you write the bug, exploit it and watch the fix refuse the same request.<br>
+  <b>Code</b>: in WebSec-Lab you write the bug, exploit it and watch the fix refuse the same request.<br>
   <b>API</b>: AuthScope finds the same class of bugs in a running service, using your access policy as the oracle.<br>
   <b>Infrastructure</b>: CloudGraph shows how the platform around the service turns one bug into a path to the crown jewels, and which change cuts it.<br>
   <b>AI agents</b>: AgentShield checks what an agent with tools and memory actually does when untrusted text tells it to misbehave.
@@ -59,8 +59,8 @@
 <details>
   <summary><b>See them in action</b></summary>
   <br>
-  <p><b>websec-lab</b>: Alice reads Bob's booking in the vulnerable mode; in the fixed mode the same request is refused.</p>
-  <img src="https://github.com/TroubieD3v/websec-lab/raw/main/docs/screenshots/demo.gif" alt="websec-lab demo" width="100%">
+  <p><b>WebSec-Lab</b>: Alice reads Bob's booking in the vulnerable mode; in the fixed mode the same request is refused.</p>
+  <img src="https://github.com/TroubieD3v/WebSec-Lab/raw/main/docs/screenshots/demo.gif" alt="WebSec-Lab demo" width="100%">
   <p><b>AuthScope</b>: a run against the demo API, the permission matrix, and the evidence for one finding.</p>
   <img src="https://github.com/TroubieD3v/AuthScope/raw/main/docs/screenshots/demo.gif" alt="AuthScope demo" width="100%">
   <p><b>CloudGraph</b>: attack paths in an insecure cluster, one highlighted in the graph, a what-if fix that removes four, and a diff against the hardened version.</p>
