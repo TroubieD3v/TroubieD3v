@@ -35,8 +35,19 @@ PROJECTS = [
         "glow": GLACIER,
         "visual": "matrix",
     },
+    {
+        "slug": "cloudgraph",
+        "kicker": "engine",
+        "name": "CloudGraph",
+        "lines": ["Explains how small misconfigurations", "chain into an attack path."],
+        "pills": ["41 rules", "Compose / K8s / Terraform", "what-if"],
+        "glow": ROSE,
+        "visual": "path",
+    },
 ]
 
+# an attack path: each hop is a separate weakness, the last one is the sensitive target
+PATH_NODES = [("internet", DIM), ("ingress", GLACIER), ("web pod", AMBER), ("secrets", ROSE)]
 LAB_ROWS = [("SQL injection", True), ("IDOR", True), ("JWT forgery", True)]
 MATRIX_HEAD = ["guest", "alice", "bob", "admin"]
 # per row: cell colours (D = expected deny, A = allow, V = violation)
@@ -88,11 +99,35 @@ def matrix_visual(x: int, y: int) -> str:
     return "".join(out)
 
 
+def path_visual(x: int, y: int) -> str:
+    """Internet -> ingress -> pod -> secrets; dashed hops are conditional, the target pulses."""
+    w, h, step = 150, 24, 34
+    out = []
+    for i, (label, colour) in enumerate(PATH_NODES):
+        top = y + i * step - h / 2
+        last = i == len(PATH_NODES) - 1
+        if i:
+            x1, y1, y2 = x + 26, top - step + h, top
+            stroke = ROSE if last else RULE
+            out.append(f'<path d="M{x1} {y1 + 2} V{y2 - 3}" stroke="{stroke}" stroke-width="2" stroke-dasharray="3 3"/>'
+                       f'<path d="M{x1 - 4} {y2 - 7} l4 4 l4 -4" stroke="{stroke}" stroke-width="2" fill="none" '
+                       f'stroke-linecap="round" stroke-linejoin="round"/>')
+        if last:
+            out.append(f'<rect class="hot" x="{x}" y="{top}" width="{w}" height="{h}" rx="12" fill="{ROSE}" '
+                       f'fill-opacity=".28" stroke="{ROSE}"/>')
+        else:
+            out.append(f'<rect x="{x}" y="{top}" width="{w}" height="{h}" rx="12" fill="{CARD}" stroke="{RULE}"/>')
+        out.append(f'<circle cx="{x + 14}" cy="{top + h / 2}" r="4" fill="{colour}"/>')
+        out.append(f'<text class="row" x="{x + 26}" y="{top + h / 2 + 4.5}" fill="{FOG if last else MUTED}">{escape(label)}</text>')
+    return "".join(out)
+
+
 def card(p: dict, onest: str, mono: str) -> str:
     sans_text = p["name"] + "".join(p["lines"])
-    mono_text = (p["kicker"] + "".join(p["pills"]) + "".join(MATRIX_HEAD) + "vulnerablefixed"
-                 + "".join(n.split()[0] for n, _ in LAB_ROWS))
-    visual = labs_visual(352, 62) if p["visual"] == "labs" else matrix_visual(382, 62)
+    mono_text = (p["kicker"] + p["kicker"].upper() + "".join(p["pills"]) + "".join(MATRIX_HEAD) + "vulnerablefixed"
+                 + "".join(n.split()[0] for n, _ in LAB_ROWS) + "".join(n for n, _ in PATH_NODES))
+    visual = {"labs": lambda: labs_visual(352, 62), "matrix": lambda: matrix_visual(382, 62),
+              "path": lambda: path_visual(410, 60)}[p["visual"]]()
     lines = "".join(f'<text class="tag" x="40" y="{200 + i * 30}">{escape(t)}</text>' for i, t in enumerate(p["lines"]))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t">
 <title id="t">{escape(p["name"])}: {escape(" ".join(p["lines"]))}</title>
