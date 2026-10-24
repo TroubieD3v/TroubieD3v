@@ -1,6 +1,6 @@
 """Build assets/card-*.svg: project cards for the profile README, matching the banner.
 
-    python scripts/build_cards.py ONEST.woff2 JETBRAINS_MONO.woff2
+    python scripts/build_cards.py ONEST.woff2 JETBRAINS_MONO.woff2 [slug]
 
 Same fonts and palette as build_banner.py (fonts subset and embedded). Needs fonttools and brotli.
 """
@@ -44,10 +44,21 @@ PROJECTS = [
         "glow": ROSE,
         "visual": "path",
     },
+    {
+        "slug": "agentshield",
+        "kicker": "red team",
+        "name": "AgentShield",
+        "lines": ["Tests what AI agents actually do,", "not just what they say."],
+        "pills": ["46 scenarios", "OWASP LLM / Agentic", "Monitor / Enforce"],
+        "glow": AMBER,
+        "visual": "trace",
+    },
 ]
 
 # an attack path: each hop is a separate weakness, the last one is the sensitive target
 PATH_NODES = [("internet", DIM), ("ingress", GLACIER), ("web pod", AMBER), ("secrets", ROSE)]
+# an agent trace: the user asks, a document smuggles in a command, the tool call is stopped by policy
+TRACE_NODES = [("request", DIM), ("document", AMBER), ("send_email", ROSE), ("blocked", GLACIER)]
 LAB_ROWS = [("SQL injection", True), ("IDOR", True), ("JWT forgery", True)]
 MATRIX_HEAD = ["guest", "alice", "bob", "admin"]
 # per row: cell colours (D = expected deny, A = allow, V = violation)
@@ -122,12 +133,39 @@ def path_visual(x: int, y: int) -> str:
     return "".join(out)
 
 
+def trace_visual(x: int, y: int) -> str:
+    """request -> document -> send_email (the unexpected call pulses) -> blocked by policy."""
+    w, h, step = 150, 24, 34
+    out = []
+    for i, (label, colour) in enumerate(TRACE_NODES):
+        top = y + i * step - h / 2
+        hot, last = label == "send_email", i == len(TRACE_NODES) - 1
+        if i:
+            x1, y1, y2 = x + 26, top - step + h, top
+            stroke = ROSE if hot else (GLACIER if last else RULE)
+            out.append(f'<path d="M{x1} {y1 + 2} V{y2 - 3}" stroke="{stroke}" stroke-width="2" stroke-dasharray="3 3"/>'
+                       f'<path d="M{x1 - 4} {y2 - 7} l4 4 l4 -4" stroke="{stroke}" stroke-width="2" fill="none" '
+                       f'stroke-linecap="round" stroke-linejoin="round"/>')
+        if hot:
+            out.append(f'<rect class="hot" x="{x}" y="{top}" width="{w}" height="{h}" rx="12" fill="{ROSE}" '
+                       f'fill-opacity=".28" stroke="{ROSE}"/>')
+        elif last:
+            out.append(f'<rect x="{x}" y="{top}" width="{w}" height="{h}" rx="12" fill="{GLACIER}" fill-opacity=".14" '
+                       f'stroke="{GLACIER}" stroke-opacity=".45"/>')
+        else:
+            out.append(f'<rect x="{x}" y="{top}" width="{w}" height="{h}" rx="12" fill="{CARD}" stroke="{RULE}"/>')
+        out.append(f'<circle cx="{x + 14}" cy="{top + h / 2}" r="4" fill="{colour}"/>')
+        out.append(f'<text class="row" x="{x + 26}" y="{top + h / 2 + 4.5}" fill="{FOG if hot or last else MUTED}">{escape(label)}</text>')
+    return "".join(out)
+
+
 def card(p: dict, onest: str, mono: str) -> str:
     sans_text = p["name"] + "".join(p["lines"])
     mono_text = (p["kicker"] + p["kicker"].upper() + "".join(p["pills"]) + "".join(MATRIX_HEAD) + "vulnerablefixed"
-                 + "".join(n.split()[0] for n, _ in LAB_ROWS) + "".join(n for n, _ in PATH_NODES))
+                 + "".join(n.split()[0] for n, _ in LAB_ROWS) + "".join(n for n, _ in PATH_NODES)
+                 + "".join(n for n, _ in TRACE_NODES))
     visual = {"labs": lambda: labs_visual(352, 62), "matrix": lambda: matrix_visual(382, 62),
-              "path": lambda: path_visual(410, 60)}[p["visual"]]()
+              "path": lambda: path_visual(410, 60), "trace": lambda: trace_visual(410, 60)}[p["visual"]]()
     lines = "".join(f'<text class="tag" x="40" y="{200 + i * 30}">{escape(t)}</text>' for i, t in enumerate(p["lines"]))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t">
 <title id="t">{escape(p["name"])}: {escape(" ".join(p["lines"]))}</title>
@@ -158,12 +196,14 @@ def card(p: dict, onest: str, mono: str) -> str:
 """
 
 
-def main(onest: str, mono: str) -> None:
+def main(onest: str, mono: str, only: str | None = None) -> None:
     for p in PROJECTS:
+        if only and p["slug"] != only:
+            continue
         out = ASSETS / f"card-{p['slug']}.svg"
         out.write_text(card(p, onest, mono), encoding="utf-8", newline="\n")
         print(f"{out} {out.stat().st_size / 1024:.1f} KiB")
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:3])
+    main(*sys.argv[1:4])

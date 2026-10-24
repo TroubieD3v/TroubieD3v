@@ -32,16 +32,29 @@
       <a href="https://github.com/TroubieD3v/CloudGraph#quick-start-docker">Quick start</a></p>
     </td>
     <td width="50%" valign="top">
-      <h4>One idea, three layers</h4>
-      <p><b>Code</b>: in websec-lab you write the bug, exploit it and watch the fix refuse the same request.</p>
-      <p><b>API</b>: AuthScope finds the same class of bugs in a running service, using your access policy as the oracle.</p>
-      <p><b>Infrastructure</b>: CloudGraph shows how the platform around the service turns one bug into a path to the
-      crown jewels, and which change cuts it.</p>
-      <p>All three report evidence rather than guesses, separate "proven" from "possible", and ship a vulnerable and a
-      hardened version so the tests can show both.</p>
+      <a href="https://github.com/TroubieD3v/AgentShield"><img src="assets/card-agentshield.svg" alt="AgentShield: tests what AI agents actually do, not just what they say" width="100%"></a>
+      <p>Tests the whole agent, not just the model: which tools it calls, which data it touches, whose instruction it
+      follows. It replays prompt injection, memory poisoning and data leaks against sandbox agents with mock tools,
+      records the full trace, and shows the same attack recorded in Monitor mode and blocked in Enforce mode.</p>
+      <p><a href="https://github.com/TroubieD3v/AgentShield"><b>Repository</b></a> &nbsp;·&nbsp;
+      <a href="https://github.com/TroubieD3v/AgentShield#quick-start-docker">Quick start</a></p>
     </td>
   </tr>
 </table>
+
+<h4 align="center">One idea, four layers</h4>
+
+<p align="center">
+  <b>Code</b>: in websec-lab you write the bug, exploit it and watch the fix refuse the same request.<br>
+  <b>API</b>: AuthScope finds the same class of bugs in a running service, using your access policy as the oracle.<br>
+  <b>Infrastructure</b>: CloudGraph shows how the platform around the service turns one bug into a path to the crown jewels, and which change cuts it.<br>
+  <b>AI agents</b>: AgentShield checks what an agent with tools and memory actually does when untrusted text tells it to misbehave.
+</p>
+
+<p align="center">
+  All four report evidence rather than guesses, separate "proven" from "possible", and ship a vulnerable and a
+  hardened version so the tests can show both.
+</p>
 
 <details>
   <summary><b>See them in action</b></summary>
@@ -52,6 +65,8 @@
   <img src="https://github.com/TroubieD3v/AuthScope/raw/main/docs/screenshots/demo.gif" alt="AuthScope demo" width="100%">
   <p><b>CloudGraph</b>: attack paths in an insecure cluster, one highlighted in the graph, a what-if fix that removes four, and a diff against the hardened version.</p>
   <img src="https://github.com/TroubieD3v/CloudGraph/raw/main/docs/screenshots/demo.gif" alt="CloudGraph demo" width="100%">
+  <p><b>AgentShield</b>: one prompt injection recorded in Monitor mode and blocked in Enforce mode, then the agent trace and a before/after comparison.</p>
+  <img src="https://github.com/TroubieD3v/AgentShield/raw/main/docs/screenshots/demo.gif" alt="AgentShield demo" width="100%">
 </details>
 
 <h3 align="center">Toolbox</h3>
@@ -67,6 +82,8 @@
   <img src="https://img.shields.io/badge/Kubernetes-1a1d22?style=for-the-badge&logo=kubernetes&logoColor=e8a33d" alt="Kubernetes">
   <img src="https://img.shields.io/badge/Terraform-1a1d22?style=for-the-badge&logo=terraform&logoColor=e8a33d" alt="Terraform">
   <img src="https://img.shields.io/badge/SQLite-1a1d22?style=for-the-badge&logo=sqlite&logoColor=e8a33d" alt="SQLite">
+  <img src="https://img.shields.io/badge/PostgreSQL-1a1d22?style=for-the-badge&logo=postgresql&logoColor=e8a33d" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Redis-1a1d22?style=for-the-badge&logo=redis&logoColor=e8a33d" alt="Redis">
   <img src="https://img.shields.io/badge/Playwright-1a1d22?style=for-the-badge&logo=playwright&logoColor=e8a33d" alt="Playwright">
   <img src="https://img.shields.io/badge/Docker-1a1d22?style=for-the-badge&logo=docker&logoColor=e8a33d" alt="Docker">
   <img src="https://img.shields.io/badge/GitHub%20Actions-1a1d22?style=for-the-badge&logo=githubactions&logoColor=e8a33d" alt="GitHub Actions">
@@ -78,5 +95,6 @@
   Web pentesting with the <a href="https://owasp.org/www-project-web-security-testing-guide/">OWASP Web Security Testing Guide</a><br>
   Access control and authentication flaws in APIs (<a href="https://owasp.org/API-Security/editions/2023/en/0x11-t10/">OWASP API Security Top 10:2023</a>)<br>
   Kubernetes and cloud attack paths: RBAC, NetworkPolicy, IAM (<a href="https://kubernetes.io/docs/concepts/security/rbac-good-practices/">RBAC good practices</a>)<br>
+  Security of LLM apps and AI agents (<a href="https://genai.owasp.org/">OWASP GenAI Security Project</a>: LLM and Agentic Top 10)<br>
   Fixes that hold, and tests that prove they do
 </p>
