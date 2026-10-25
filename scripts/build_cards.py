@@ -53,12 +53,24 @@ PROJECTS = [
         "glow": AMBER,
         "visual": "trace",
     },
+    {
+        "slug": "supplychain-radar",
+        "kicker": "scanner",
+        "name": "SupplyChain Radar",
+        "name_size": 38,
+        "lines": ["Shows why a vulnerable package is in", "your project and which upgrade fixes it."],
+        "pills": ["6 input formats", "OSV / SARIF", "what-if"],
+        "glow": GLACIER,
+        "visual": "deps",
+    },
 ]
 
 # an attack path: each hop is a separate weakness, the last one is the sensitive target
 PATH_NODES = [("internet", DIM), ("ingress", GLACIER), ("web pod", AMBER), ("secrets", ROSE)]
 # an agent trace: the user asks, a document smuggles in a command, the tool call is stopped by policy
 TRACE_NODES = [("request", DIM), ("document", AMBER), ("send_email", ROSE), ("blocked", GLACIER)]
+# a dependency path: the app pulls a framework, the framework pulls the vulnerable package, the fix is named
+DEPS_NODES = [("your app", DIM), ("framework-a", AMBER), ("vulnerable-lib", ROSE), ("fixed in 1.2.5", GLACIER)]
 LAB_ROWS = [("SQL injection", True), ("IDOR", True), ("JWT forgery", True)]
 MATRIX_HEAD = ["guest", "alice", "bob", "admin"]
 # per row: cell colours (D = expected deny, A = allow, V = violation)
@@ -133,13 +145,14 @@ def path_visual(x: int, y: int) -> str:
     return "".join(out)
 
 
-def trace_visual(x: int, y: int) -> str:
+def trace_visual(x: int, y: int, nodes: list | None = None, hot_label: str = "send_email") -> str:
     """request -> document -> send_email (the unexpected call pulses) -> blocked by policy."""
     w, h, step = 150, 24, 34
+    nodes = nodes or TRACE_NODES
     out = []
-    for i, (label, colour) in enumerate(TRACE_NODES):
+    for i, (label, colour) in enumerate(nodes):
         top = y + i * step - h / 2
-        hot, last = label == "send_email", i == len(TRACE_NODES) - 1
+        hot, last = label == hot_label, i == len(nodes) - 1
         if i:
             x1, y1, y2 = x + 26, top - step + h, top
             stroke = ROSE if hot else (GLACIER if last else RULE)
@@ -163,16 +176,17 @@ def card(p: dict, onest: str, mono: str) -> str:
     sans_text = p["name"] + "".join(p["lines"])
     mono_text = (p["kicker"] + p["kicker"].upper() + "".join(p["pills"]) + "".join(MATRIX_HEAD) + "vulnerablefixed"
                  + "".join(n.split()[0] for n, _ in LAB_ROWS) + "".join(n for n, _ in PATH_NODES)
-                 + "".join(n for n, _ in TRACE_NODES))
+                 + "".join(n for n, _ in TRACE_NODES) + "".join(n for n, _ in DEPS_NODES))
     visual = {"labs": lambda: labs_visual(352, 62), "matrix": lambda: matrix_visual(382, 62),
-              "path": lambda: path_visual(410, 60), "trace": lambda: trace_visual(410, 60)}[p["visual"]]()
+              "path": lambda: path_visual(410, 60), "trace": lambda: trace_visual(410, 60),
+              "deps": lambda: trace_visual(410, 60, DEPS_NODES, "vulnerable-lib")}[p["visual"]]()
     lines = "".join(f'<text class="tag" x="40" y="{200 + i * 30}">{escape(t)}</text>' for i, t in enumerate(p["lines"]))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t">
 <title id="t">{escape(p["name"])}: {escape(" ".join(p["lines"]))}</title>
 <style>
 {font_face(onest, "Onest", sans_text)}
 {font_face(mono, "JetBrains Mono", mono_text)}
-.name{{font:600 44px 'Onest',system-ui,sans-serif;letter-spacing:-1px;fill:{FOG}}}
+.name{{font:600 {p.get("name_size", 44)}px 'Onest',system-ui,sans-serif;letter-spacing:-1px;fill:{FOG}}}
 .tag{{font:400 19px 'Onest',system-ui,sans-serif;fill:{MUTED}}}
 .kicker{{font:500 14px 'JetBrains Mono',ui-monospace,Consolas,monospace;letter-spacing:1.5px;fill:{p["glow"]}}}
 .pill{{font:500 13px 'JetBrains Mono',ui-monospace,Consolas,monospace;fill:{FOG}}}
