@@ -41,8 +41,8 @@
     </td>
   </tr>
   <tr>
-    <td width="50%" valign="top" colspan="2" align="center">
-      <a href="https://github.com/TroubieD3v/SupplyChainRadar"><img src="assets/card-supplychain-radar.svg" alt="SupplyChain Radar: shows why a vulnerable package is in your project and which upgrade fixes it" width="50%"></a>
+    <td width="50%" valign="top">
+      <a href="https://github.com/TroubieD3v/SupplyChainRadar"><img src="assets/card-supplychain-radar.svg" alt="SupplyChain Radar: shows why a vulnerable package is in your project and which upgrade fixes it" width="100%"></a>
       <p>Reads lockfiles and SBOMs without ever running them, builds the real dependency graph and matches every resolved
       package against OSV advisories. Each finding shows the path that brought the package in and the lockfile line behind
       every hop. A package that was not evaluated is never reported as clean, and a what-if mode compares an upgrade
@@ -51,21 +51,30 @@
       <a href="https://github.com/TroubieD3v/SupplyChainRadar#60-second-quickstart">Quick start</a> &nbsp;·&nbsp;
       <a href="https://github.com/TroubieD3v/SupplyChainRadar/releases/tag/v1.0.0">v1.0.0</a></p>
     </td>
+    <td width="50%" valign="top">
+      <a href="https://github.com/TroubieD3v/RLS-Sentinel"><img src="assets/card-rls-sentinel.svg" alt="RLS Sentinel: proves what PostgreSQL row-level security really lets each role do" width="100%"></a>
+      <p>Turns "tenant A must not see tenant B" into real SQL run as each role inside a throwaway PostgreSQL, and records
+      what the database actually did: which gate stopped it, which policies applied, and why. Anything it cannot prove
+      stays inconclusive, never "safe". A live database is only ever read, and a what-if lab replays a policy change before you ship it.</p>
+      <p><a href="https://github.com/TroubieD3v/RLS-Sentinel"><b>Repository</b></a> &nbsp;·&nbsp;
+      <a href="https://github.com/TroubieD3v/RLS-Sentinel#quick-start">Quick start</a></p>
+    </td>
   </tr>
 </table>
 
-<h4 align="center">One idea, five layers</h4>
+<h4 align="center">One idea, six layers</h4>
 
 <p align="center">
   <b>Code</b>: in WebSec-Lab you write the bug, exploit it and watch the fix refuse the same request.<br>
   <b>API</b>: AuthScope finds the same class of bugs in a running service, using your access policy as the oracle.<br>
   <b>Infrastructure</b>: CloudGraph shows how the platform around the service turns one bug into a path to the crown jewels, and which change cuts it.<br>
   <b>AI agents</b>: AgentShield checks what an agent with tools and memory actually does when untrusted text tells it to misbehave.<br>
-  <b>Supply chain</b>: SupplyChain Radar shows how a vulnerable dependency got into the project, through which parent, and which upgrade really removes it.
+  <b>Supply chain</b>: SupplyChain Radar shows how a vulnerable dependency got into the project, through which parent, and which upgrade really removes it.<br>
+  <b>Database</b>: RLS Sentinel tests whether PostgreSQL row-level security keeps every tenant in its own rows, role by role and command by command.
 </p>
 
 <p align="center">
-  All five report evidence rather than guesses, separate "proven" from "possible", and ship a vulnerable and a
+  All six report evidence rather than guesses, separate "proven" from "possible", and ship a vulnerable and a
   hardened version so the tests can show both.
 </p>
 
@@ -83,6 +92,8 @@
   <p><b>SupplyChain Radar</b>: every path from the app to a vulnerable shared dependency highlighted in the graph, then the finding with its evidence and the upgrade that fixes it. Demo data is synthetic and labelled as such.</p>
   <img src="https://github.com/TroubieD3v/SupplyChainRadar/raw/main/docs/screenshots/graph.png" alt="SupplyChain Radar dependency graph" width="100%">
   <img src="https://github.com/TroubieD3v/SupplyChainRadar/raw/main/docs/screenshots/finding-detail.png" alt="SupplyChain Radar finding detail" width="100%">
+  <p><b>RLS Sentinel</b>: the authorization matrix of the bundled multi-tenant fixture, with the evidence for one cell where Bob reads another tenant's comment. All data is synthetic.</p>
+  <img src="https://github.com/TroubieD3v/RLS-Sentinel/raw/main/docs/assets/matrix-evidence-dark.png" alt="RLS Sentinel authorization matrix with evidence" width="100%">
 </details>
 
 <h3 align="center">Toolbox</h3>

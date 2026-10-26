@@ -63,6 +63,15 @@ PROJECTS = [
         "glow": GLACIER,
         "visual": "deps",
     },
+    {
+        "slug": "rls-sentinel",
+        "kicker": "verifier",
+        "name": "RLS Sentinel",
+        "lines": ["Proves what PostgreSQL row-level", "security really lets each role do."],
+        "pills": ["PostgreSQL 15-18", "21 rules", "what-if"],
+        "glow": ROSE,
+        "visual": "rls",
+    },
 ]
 
 # an attack path: each hop is a separate weakness, the last one is the sensitive target
@@ -75,6 +84,9 @@ LAB_ROWS = [("SQL injection", True), ("IDOR", True), ("JWT forgery", True)]
 MATRIX_HEAD = ["guest", "alice", "bob", "admin"]
 # per row: cell colours (D = expected deny, A = allow, V = violation)
 MATRIX = [("GET /orders/101", "DAVA"), ("PUT /users/101", "DADA"), ("GET /admin/stats", "DDVA")]
+# row-level security on another tenant's rows, per role and command: bob's SELECT and DELETE get through
+RLS_HEAD = ["SEL", "INS", "UPD", "DEL"]
+RLS_ROWS = [("alice", "AAAA"), ("bob", "VDDV"), ("anon", "DDDD")]
 
 
 def pill_row(pills: list[str], x: int, y: int) -> str:
@@ -110,6 +122,30 @@ def matrix_visual(x: int, y: int) -> str:
     for i, (_, row) in enumerate(MATRIX):
         for j, kind in enumerate(row):
             cx, cy = x + j * (cell + gap), y + 14 + i * (cell - 8 + gap)
+            if kind == "V":
+                out.append(f'<rect class="hot" x="{cx}" y="{cy}" width="{cell}" height="{cell - 8}" rx="6" '
+                           f'fill="{ROSE}" fill-opacity=".28" stroke="{ROSE}"/>')
+            elif kind == "A":
+                out.append(f'<rect x="{cx}" y="{cy}" width="{cell}" height="{cell - 8}" rx="6" fill="{GLACIER}" '
+                           f'fill-opacity=".14" stroke="{GLACIER}" stroke-opacity=".45"/>')
+            else:
+                out.append(f'<rect x="{cx}" y="{cy}" width="{cell}" height="{cell - 8}" rx="6" fill="{CARD}" '
+                           f'stroke="{RULE}"/>')
+    return "".join(out)
+
+
+def rls_visual(x: int, y: int) -> str:
+    """Roles x SQL commands on tenant rows: allowed (glacier), denied (plain), leaked through RLS (pulsing rose)."""
+    cell, gap, left = 30, 8, 52
+    out = []
+    for j, h in enumerate(RLS_HEAD):
+        out.append(f'<text class="head" x="{x + left + j * (cell + gap) + cell / 2}" y="{y}" text-anchor="middle" '
+                   f'fill="{DIM}">{h}</text>')
+    for i, (role, row) in enumerate(RLS_ROWS):
+        cy = y + 14 + i * (cell - 8 + gap)
+        out.append(f'<text class="row" x="{x}" y="{cy + 15.5}" fill="{MUTED}">{escape(role)}</text>')
+        for j, kind in enumerate(row):
+            cx = x + left + j * (cell + gap)
             if kind == "V":
                 out.append(f'<rect class="hot" x="{cx}" y="{cy}" width="{cell}" height="{cell - 8}" rx="6" '
                            f'fill="{ROSE}" fill-opacity=".28" stroke="{ROSE}"/>')
@@ -176,10 +212,12 @@ def card(p: dict, onest: str, mono: str) -> str:
     sans_text = p["name"] + "".join(p["lines"])
     mono_text = (p["kicker"] + p["kicker"].upper() + "".join(p["pills"]) + "".join(MATRIX_HEAD) + "vulnerablefixed"
                  + "".join(n.split()[0] for n, _ in LAB_ROWS) + "".join(n for n, _ in PATH_NODES)
-                 + "".join(n for n, _ in TRACE_NODES) + "".join(n for n, _ in DEPS_NODES))
+                 + "".join(n for n, _ in TRACE_NODES) + "".join(n for n, _ in DEPS_NODES)
+                 + "".join(RLS_HEAD) + "".join(r for r, _ in RLS_ROWS))
     visual = {"labs": lambda: labs_visual(352, 62), "matrix": lambda: matrix_visual(382, 62),
               "path": lambda: path_visual(410, 60), "trace": lambda: trace_visual(410, 60),
-              "deps": lambda: trace_visual(410, 60, DEPS_NODES, "vulnerable-lib")}[p["visual"]]()
+              "deps": lambda: trace_visual(410, 60, DEPS_NODES, "vulnerable-lib"),
+              "rls": lambda: rls_visual(378, 62)}[p["visual"]]()
     lines = "".join(f'<text class="tag" x="40" y="{200 + i * 30}">{escape(t)}</text>' for i, t in enumerate(p["lines"]))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t">
 <title id="t">{escape(p["name"])}: {escape(" ".join(p["lines"]))}</title>
