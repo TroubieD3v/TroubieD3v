@@ -55,7 +55,8 @@
       <a href="https://github.com/TroubieD3v/RLS-Sentinel"><img src="assets/card-rls-sentinel.svg" alt="RLS Sentinel: proves what PostgreSQL row-level security really lets each role do" width="100%"></a>
       <p>Turns "tenant A must not see tenant B" into real SQL run as each role inside a throwaway PostgreSQL, and records
       what the database actually did: which gate stopped it, which policies applied, and why. Anything it cannot prove
-      stays inconclusive, never "safe". A live database is only ever read, and a what-if lab replays a policy change before you ship it.</p>
+      stays inconclusive, never "safe". A live database is only ever read, a what-if lab replays a policy change before you ship it, and a generated
+      schema of 1 000 tables and 10 000 policies runs end to end in under 30 seconds.</p>
       <p><a href="https://github.com/TroubieD3v/RLS-Sentinel"><b>Repository</b></a> &nbsp;·&nbsp;
       <a href="https://github.com/TroubieD3v/RLS-Sentinel#quick-start">Quick start</a></p>
     </td>
@@ -92,8 +93,8 @@
   <p><b>SupplyChain Radar</b>: every path from the app to a vulnerable shared dependency highlighted in the graph, then the finding with its evidence and the upgrade that fixes it. Demo data is synthetic and labelled as such.</p>
   <img src="https://github.com/TroubieD3v/SupplyChainRadar/raw/main/docs/screenshots/graph.png" alt="SupplyChain Radar dependency graph" width="100%">
   <img src="https://github.com/TroubieD3v/SupplyChainRadar/raw/main/docs/screenshots/finding-detail.png" alt="SupplyChain Radar finding detail" width="100%">
-  <p><b>RLS Sentinel</b>: the authorization matrix of the bundled multi-tenant fixture, with the evidence for one cell where Bob reads another tenant's comment. All data is synthetic.</p>
-  <img src="https://github.com/TroubieD3v/RLS-Sentinel/raw/main/docs/assets/matrix-evidence-dark.png" alt="RLS Sentinel authorization matrix with evidence" width="100%">
+  <p><b>RLS Sentinel</b>: the vulnerable fixture finds 8 cross-tenant leaks, the evidence for one shows which gate let it through, a what-if fix removes two in a sandbox without regressions, and the secure variant finds none. All data is synthetic.</p>
+  <img src="https://github.com/TroubieD3v/RLS-Sentinel/raw/main/docs/assets/demo.gif" alt="RLS Sentinel demo" width="100%">
 </details>
 
 <h3 align="center">Toolbox</h3>
