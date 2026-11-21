@@ -12,14 +12,16 @@
       <p>Twelve labs from SQL injection and XSS to JWT forgery and race conditions. Each runs the vulnerable code and
       its fix side by side, shows the diff, and checks on the server that your attack lands on one and fails on the other.</p>
       <p><a href="https://github.com/TroubieD3v/WebSec-Lab"><b>Repository</b></a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/WebSec-Lab#quick-start-docker">Quick start</a></p>
+      <a href="https://github.com/TroubieD3v/WebSec-Lab#quick-start-docker">Quick start</a> &nbsp;·&nbsp;
+      <a href="https://github.com/TroubieD3v/WebSec-Lab/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/WebSec-Lab?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest WebSec-Lab release" align="absmiddle"></a></p>
     </td>
     <td width="50%" valign="top">
       <a href="https://github.com/TroubieD3v/AuthScope"><img src="assets/card-authscope.svg" alt="AuthScope: finds authorization bugs in REST APIs by checking who can really reach what" width="100%"></a>
       <p>Import OpenAPI or Postman, add test accounts, say who owns which objects. AuthScope compares real responses with
       your policy, so <code>200 []</code> is not a finding, and every violation comes with both requests and a curl to reproduce it.</p>
       <p><a href="https://github.com/TroubieD3v/AuthScope"><b>Repository</b></a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/AuthScope#quick-start-docker">Quick start</a></p>
+      <a href="https://github.com/TroubieD3v/AuthScope#quick-start-docker">Quick start</a> &nbsp;·&nbsp;
+      <a href="https://github.com/TroubieD3v/AuthScope/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/AuthScope?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest AuthScope release" align="absmiddle"></a></p>
     </td>
   </tr>
   <tr>
@@ -29,7 +31,8 @@
       an exposed pod, a mounted token and a broad role add up to a path to your secrets, traces every step to a line of
       config, and simulates which fix breaks the most chains before you touch a file.</p>
       <p><a href="https://github.com/TroubieD3v/CloudGraph"><b>Repository</b></a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/CloudGraph#quick-start-docker">Quick start</a></p>
+      <a href="https://github.com/TroubieD3v/CloudGraph#quick-start-docker">Quick start</a> &nbsp;·&nbsp;
+      <a href="https://github.com/TroubieD3v/CloudGraph/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/CloudGraph?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest CloudGraph release" align="absmiddle"></a></p>
     </td>
     <td width="50%" valign="top">
       <a href="https://github.com/TroubieD3v/AgentShield"><img src="assets/card-agentshield.svg" alt="AgentShield: tests what AI agents actually do, not just what they say" width="100%"></a>
@@ -37,7 +40,8 @@
       follows. It replays prompt injection, memory poisoning and data leaks against sandbox agents with mock tools,
       records the full trace, and shows the same attack recorded in Monitor mode and blocked in Enforce mode.</p>
       <p><a href="https://github.com/TroubieD3v/AgentShield"><b>Repository</b></a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/AgentShield#quick-start-docker">Quick start</a></p>
+      <a href="https://github.com/TroubieD3v/AgentShield#quick-start-docker">Quick start</a> &nbsp;·&nbsp;
+      <a href="https://github.com/TroubieD3v/AgentShield/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/AgentShield?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest AgentShield release" align="absmiddle"></a></p>
     </td>
   </tr>
   <tr>
@@ -49,7 +53,7 @@
       before you touch a file.</p>
       <p><a href="https://github.com/TroubieD3v/SupplyChainRadar"><b>Repository</b></a> &nbsp;·&nbsp;
       <a href="https://github.com/TroubieD3v/SupplyChainRadar#60-second-quickstart">Quick start</a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/SupplyChainRadar/releases/tag/v1.0.0">v1.0.0</a></p>
+      <a href="https://github.com/TroubieD3v/SupplyChainRadar/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/SupplyChainRadar?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest SupplyChainRadar release" align="absmiddle"></a></p>
     </td>
     <td width="50%" valign="top">
       <a href="https://github.com/TroubieD3v/RLS-Sentinel"><img src="assets/card-rls-sentinel.svg" alt="RLS Sentinel: proves what PostgreSQL row-level security really lets each role do" width="100%"></a>
@@ -58,21 +62,22 @@
       stays inconclusive, never "safe". A live database is only ever read, a what-if lab replays a policy change before you ship it, and a generated
       schema of 1 000 tables and 10 000 policies runs end to end in under 30 seconds.</p>
       <p><a href="https://github.com/TroubieD3v/RLS-Sentinel"><b>Repository</b></a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/RLS-Sentinel#quick-start">Quick start</a></p>
+      <a href="https://github.com/TroubieD3v/RLS-Sentinel#quick-start">Quick start</a> &nbsp;·&nbsp;
+      <a href="https://github.com/TroubieD3v/RLS-Sentinel/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/RLS-Sentinel?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest RLS-Sentinel release" align="absmiddle"></a></p>
     </td>
   </tr>
 </table>
 
 <h4 align="center">One idea, six layers</h4>
 
-<p align="center">
-  <b>Code</b>: in WebSec-Lab you write the bug, exploit it and watch the fix refuse the same request.<br>
-  <b>API</b>: AuthScope finds the same class of bugs in a running service, using your access policy as the oracle.<br>
-  <b>Infrastructure</b>: CloudGraph shows how the platform around the service turns one bug into a path to the crown jewels, and which change cuts it.<br>
-  <b>AI agents</b>: AgentShield checks what an agent with tools and memory actually does when untrusted text tells it to misbehave.<br>
-  <b>Supply chain</b>: SupplyChain Radar shows how a vulnerable dependency got into the project, through which parent, and which upgrade really removes it.<br>
-  <b>Database</b>: RLS Sentinel tests whether PostgreSQL row-level security keeps every tenant in its own rows, role by role and command by command.
-</p>
+| Layer | Project | The question it answers |
+| :-- | :-- | :-- |
+| **Code** | [WebSec-Lab](https://github.com/TroubieD3v/WebSec-Lab) | Does the fix refuse the exact request that exploited the bug? |
+| **API** | [AuthScope](https://github.com/TroubieD3v/AuthScope) | Can this user reach that object, judged against your own access policy? |
+| **Infrastructure** | [CloudGraph](https://github.com/TroubieD3v/CloudGraph) | How does one bug become a path to the crown jewels, and which change cuts it? |
+| **AI agents** | [AgentShield](https://github.com/TroubieD3v/AgentShield) | What does an agent with tools and memory do when untrusted text tells it to misbehave? |
+| **Supply chain** | [SupplyChain Radar](https://github.com/TroubieD3v/SupplyChainRadar) | Which parent brought this vulnerable package in, and which upgrade really removes it? |
+| **Database** | [RLS Sentinel](https://github.com/TroubieD3v/RLS-Sentinel) | Does row-level security keep every tenant in its own rows, role by role and command by command? |
 
 <p align="center">
   All six report evidence rather than guesses, separate "proven" from "possible", and ship a vulnerable and a
@@ -119,10 +124,13 @@
 
 <h3 align="center">Studying now</h3>
 
-<p align="center">
-  Web pentesting with the <a href="https://owasp.org/www-project-web-security-testing-guide/">OWASP Web Security Testing Guide</a><br>
-  Access control and authentication flaws in APIs (<a href="https://owasp.org/API-Security/editions/2023/en/0x11-t10/">OWASP API Security Top 10:2023</a>)<br>
-  Kubernetes and cloud attack paths: RBAC, NetworkPolicy, IAM (<a href="https://kubernetes.io/docs/concepts/security/rbac-good-practices/">RBAC good practices</a>)<br>
-  Security of LLM apps and AI agents (<a href="https://genai.owasp.org/">OWASP GenAI Security Project</a>: LLM and Agentic Top 10)<br>
-  Fixes that hold, and tests that prove they do
-</p>
+| Studying | Reference | Where it shows up |
+| :-- | :-- | :-- |
+| Web pentesting | [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) | WebSec-Lab |
+| Access control and authentication flaws in APIs | [OWASP API Security Top 10:2023](https://owasp.org/API-Security/editions/2023/en/0x11-t10/) | AuthScope |
+| Kubernetes and cloud attack paths: RBAC, NetworkPolicy, IAM | [RBAC good practices](https://kubernetes.io/docs/concepts/security/rbac-good-practices/) | CloudGraph |
+| Security of LLM apps and AI agents | [OWASP GenAI: LLM and Agentic Top 10](https://genai.owasp.org/) | AgentShield |
+| Dependency risk and SBOMs | [OSV](https://osv.dev/) · [OpenSSF](https://openssf.org/) | SupplyChain Radar |
+| Multi-tenant isolation in PostgreSQL | [Row security policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) | RLS Sentinel |
+
+<p align="center"><i>Fixes that hold, and tests that prove they do.</i></p>
