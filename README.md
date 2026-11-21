@@ -13,7 +13,7 @@
       its fix side by side, shows the diff, and checks on the server that your attack lands on one and fails on the other.</p>
       <p><a href="https://github.com/TroubieD3v/WebSec-Lab"><b>Repository</b></a> &nbsp;·&nbsp;
       <a href="https://github.com/TroubieD3v/WebSec-Lab#quick-start-docker">Quick start</a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/WebSec-Lab/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/WebSec-Lab?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest WebSec-Lab release" align="absmiddle"></a></p>
+      <a href="https://github.com/TroubieD3v/WebSec-Lab/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/WebSec-Lab?style=flat-square&label=release&labelColor=000000&color=5c5c5c" alt="Latest WebSec-Lab release" align="absmiddle"></a></p>
     </td>
     <td width="50%" valign="top">
       <a href="https://github.com/TroubieD3v/AuthScope"><img src="assets/card-authscope.svg" alt="AuthScope: finds authorization bugs in REST APIs by checking who can really reach what" width="100%"></a>
@@ -21,7 +21,7 @@
       your policy, so <code>200 []</code> is not a finding, and every violation comes with both requests and a curl to reproduce it.</p>
       <p><a href="https://github.com/TroubieD3v/AuthScope"><b>Repository</b></a> &nbsp;·&nbsp;
       <a href="https://github.com/TroubieD3v/AuthScope#quick-start-docker">Quick start</a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/AuthScope/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/AuthScope?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest AuthScope release" align="absmiddle"></a></p>
+      <a href="https://github.com/TroubieD3v/AuthScope/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/AuthScope?style=flat-square&label=release&labelColor=000000&color=5c5c5c" alt="Latest AuthScope release" align="absmiddle"></a></p>
     </td>
   </tr>
   <tr>
@@ -32,7 +32,7 @@
       config, and simulates which fix breaks the most chains before you touch a file.</p>
       <p><a href="https://github.com/TroubieD3v/CloudGraph"><b>Repository</b></a> &nbsp;·&nbsp;
       <a href="https://github.com/TroubieD3v/CloudGraph#quick-start-docker">Quick start</a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/CloudGraph/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/CloudGraph?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest CloudGraph release" align="absmiddle"></a></p>
+      <a href="https://github.com/TroubieD3v/CloudGraph/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/CloudGraph?style=flat-square&label=release&labelColor=000000&color=5c5c5c" alt="Latest CloudGraph release" align="absmiddle"></a></p>
     </td>
     <td width="50%" valign="top">
       <a href="https://github.com/TroubieD3v/AgentShield"><img src="assets/card-agentshield.svg" alt="AgentShield: tests what AI agents actually do, not just what they say" width="100%"></a>
@@ -41,7 +41,7 @@
       records the full trace, and shows the same attack recorded in Monitor mode and blocked in Enforce mode.</p>
       <p><a href="https://github.com/TroubieD3v/AgentShield"><b>Repository</b></a> &nbsp;·&nbsp;
       <a href="https://github.com/TroubieD3v/AgentShield#quick-start-docker">Quick start</a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/AgentShield/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/AgentShield?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest AgentShield release" align="absmiddle"></a></p>
+      <a href="https://github.com/TroubieD3v/AgentShield/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/AgentShield?style=flat-square&label=release&labelColor=000000&color=5c5c5c" alt="Latest AgentShield release" align="absmiddle"></a></p>
     </td>
   </tr>
   <tr>
@@ -53,7 +53,7 @@
       before you touch a file.</p>
       <p><a href="https://github.com/TroubieD3v/SupplyChainRadar"><b>Repository</b></a> &nbsp;·&nbsp;
       <a href="https://github.com/TroubieD3v/SupplyChainRadar#60-second-quickstart">Quick start</a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/SupplyChainRadar/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/SupplyChainRadar?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest SupplyChainRadar release" align="absmiddle"></a></p>
+      <a href="https://github.com/TroubieD3v/SupplyChainRadar/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/SupplyChainRadar?style=flat-square&label=release&labelColor=000000&color=5c5c5c" alt="Latest SupplyChainRadar release" align="absmiddle"></a></p>
     </td>
     <td width="50%" valign="top">
       <a href="https://github.com/TroubieD3v/RLS-Sentinel"><img src="assets/card-rls-sentinel.svg" alt="RLS Sentinel: proves what PostgreSQL row-level security really lets each role do" width="100%"></a>
@@ -63,7 +63,7 @@
       schema of 1 000 tables and 10 000 policies runs end to end in under 30 seconds.</p>
       <p><a href="https://github.com/TroubieD3v/RLS-Sentinel"><b>Repository</b></a> &nbsp;·&nbsp;
       <a href="https://github.com/TroubieD3v/RLS-Sentinel#quick-start">Quick start</a> &nbsp;·&nbsp;
-      <a href="https://github.com/TroubieD3v/RLS-Sentinel/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/RLS-Sentinel?style=flat-square&label=release&labelColor=1a1d22&color=2b3036" alt="Latest RLS-Sentinel release" align="absmiddle"></a></p>
+      <a href="https://github.com/TroubieD3v/RLS-Sentinel/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/RLS-Sentinel?style=flat-square&label=release&labelColor=000000&color=5c5c5c" alt="Latest RLS-Sentinel release" align="absmiddle"></a></p>
     </td>
   </tr>
 </table>
@@ -105,21 +105,21 @@
 <h3 align="center">Toolbox</h3>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-1a1d22?style=for-the-badge&logo=python&logoColor=7cc4e8" alt="Python">
-  <img src="https://img.shields.io/badge/Go-1a1d22?style=for-the-badge&logo=go&logoColor=7cc4e8" alt="Go">
-  <img src="https://img.shields.io/badge/FastAPI-1a1d22?style=for-the-badge&logo=fastapi&logoColor=7cc4e8" alt="FastAPI">
-  <img src="https://img.shields.io/badge/TypeScript-1a1d22?style=for-the-badge&logo=typescript&logoColor=7cc4e8" alt="TypeScript">
-  <img src="https://img.shields.io/badge/React-1a1d22?style=for-the-badge&logo=react&logoColor=7cc4e8" alt="React">
-  <img src="https://img.shields.io/badge/Tailwind-1a1d22?style=for-the-badge&logo=tailwindcss&logoColor=7cc4e8" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Python-000000?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Go-000000?style=for-the-badge&logo=go&logoColor=white" alt="Go">
+  <img src="https://img.shields.io/badge/FastAPI-000000?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/React-000000?style=for-the-badge&logo=react&logoColor=white" alt="React">
+  <img src="https://img.shields.io/badge/Tailwind-000000?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
   <br>
-  <img src="https://img.shields.io/badge/Kubernetes-1a1d22?style=for-the-badge&logo=kubernetes&logoColor=e8a33d" alt="Kubernetes">
-  <img src="https://img.shields.io/badge/Terraform-1a1d22?style=for-the-badge&logo=terraform&logoColor=e8a33d" alt="Terraform">
-  <img src="https://img.shields.io/badge/SQLite-1a1d22?style=for-the-badge&logo=sqlite&logoColor=e8a33d" alt="SQLite">
-  <img src="https://img.shields.io/badge/PostgreSQL-1a1d22?style=for-the-badge&logo=postgresql&logoColor=e8a33d" alt="PostgreSQL">
-  <img src="https://img.shields.io/badge/Redis-1a1d22?style=for-the-badge&logo=redis&logoColor=e8a33d" alt="Redis">
-  <img src="https://img.shields.io/badge/Playwright-1a1d22?style=for-the-badge&logo=playwright&logoColor=e8a33d" alt="Playwright">
-  <img src="https://img.shields.io/badge/Docker-1a1d22?style=for-the-badge&logo=docker&logoColor=e8a33d" alt="Docker">
-  <img src="https://img.shields.io/badge/GitHub%20Actions-1a1d22?style=for-the-badge&logo=githubactions&logoColor=e8a33d" alt="GitHub Actions">
+  <img src="https://img.shields.io/badge/Kubernetes-000000?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes">
+  <img src="https://img.shields.io/badge/Terraform-000000?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform">
+  <img src="https://img.shields.io/badge/SQLite-000000?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
+  <img src="https://img.shields.io/badge/PostgreSQL-000000?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Redis-000000?style=for-the-badge&logo=redis&logoColor=white" alt="Redis">
+  <img src="https://img.shields.io/badge/Playwright-000000?style=for-the-badge&logo=playwright&logoColor=white" alt="Playwright">
+  <img src="https://img.shields.io/badge/Docker-000000?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/GitHub%20Actions-000000?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions">
 </p>
 
 <h3 align="center">Studying now</h3>
