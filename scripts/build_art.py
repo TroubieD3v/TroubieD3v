@@ -59,9 +59,12 @@ PROJECTS = [
     {"slug": "rls-sentinel", "kicker": "database", "name": "RLS Sentinel",
      "text": "Proves what PostgreSQL row-level security really lets each role do.",
      "stat": "21", "stat_label": ["rules", "PostgreSQL 15 to 18"]},
+    {"slug": "photofinish", "kicker": "race conditions", "name": "PhotoFinish",
+     "text": "Proves race conditions in web APIs instead of just sending them.",
+     "stat": "0.2", "stat_label": ["ms arrival spread", "single-packet attack"]},
 ]
 # Two per row in the README; alternate like the site's ink and paper sections.
-THEMES = [DARK, LIGHT, LIGHT, DARK, DARK, LIGHT]
+THEMES = [DARK, LIGHT, LIGHT, DARK, DARK, LIGHT, LIGHT]
 
 
 @cache

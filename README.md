@@ -66,9 +66,25 @@
       <a href="https://github.com/TroubieD3v/RLS-Sentinel/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/RLS-Sentinel?style=flat-square&label=release&labelColor=000000&color=5c5c5c" alt="Latest RLS-Sentinel release" align="absmiddle"></a></p>
     </td>
   </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://github.com/TroubieD3v/PhotoFinish"><img src="assets/card-photofinish.svg" alt="PhotoFinish: proves race conditions in web APIs instead of just sending them" width="100%"></a>
+    </td>
+    <td width="50%" valign="top">
+      <p>A single-use coupon applied three times, a balance taken below zero, a 2FA limit that lets you try nine codes.
+      PhotoFinish sends the race with the HTTP/2 single-packet attack, checks a business rule you write in CEL after
+      every trial, and reports VIOLATED or HELD with a timeline of every stream. Under 5 ms of network jitter its
+      requests still reach the server within 0.2 ms of each other.</p>
+      <p>JSON, SARIF, JUnit and HTML reports, a GitHub Action, a local web UI, and a demo shop where each of four
+      races comes in a vulnerable and a fixed version.</p>
+      <p><a href="https://github.com/TroubieD3v/PhotoFinish"><b>Repository</b></a> &nbsp;·&nbsp;
+      <a href="https://github.com/TroubieD3v/PhotoFinish#install">Install</a> &nbsp;·&nbsp;
+      <a href="https://github.com/TroubieD3v/PhotoFinish/releases/latest"><img src="https://img.shields.io/github/v/release/TroubieD3v/PhotoFinish?style=flat-square&label=release&labelColor=000000&color=5c5c5c" alt="Latest PhotoFinish release" align="absmiddle"></a></p>
+    </td>
+  </tr>
 </table>
 
-<h4 align="center">One idea, six layers</h4>
+<h4 align="center">One idea, seven layers</h4>
 
 | Layer | Project | The question it answers |
 | :-- | :-- | :-- |
@@ -78,9 +94,10 @@
 | **AI agents** | [AgentShield](https://github.com/TroubieD3v/AgentShield) | What does an agent with tools and memory do when untrusted text tells it to misbehave? |
 | **Supply chain** | [SupplyChain Radar](https://github.com/TroubieD3v/SupplyChainRadar) | Which parent brought this vulnerable package in, and which upgrade really removes it? |
 | **Database** | [RLS Sentinel](https://github.com/TroubieD3v/RLS-Sentinel) | Does row-level security keep every tenant in its own rows, role by role and command by command? |
+| **Concurrency** | [PhotoFinish](https://github.com/TroubieD3v/PhotoFinish) | Does a business rule still hold when twenty requests arrive at the same moment? |
 
 <p align="center">
-  All six report evidence rather than guesses, separate "proven" from "possible", and ship a vulnerable and a
+  All seven report evidence rather than guesses, separate "proven" from "possible", and ship a vulnerable and a
   hardened version so the tests can show both.
 </p>
 
@@ -100,6 +117,8 @@
   <img src="https://github.com/TroubieD3v/SupplyChainRadar/raw/main/docs/screenshots/finding-detail.png" alt="SupplyChain Radar finding detail" width="100%">
   <p><b>RLS Sentinel</b>: the vulnerable fixture finds 8 cross-tenant leaks, the evidence for one shows which gate let it through, a what-if fix removes two in a sandbox without regressions, and the secure variant finds none. All data is synthetic.</p>
   <img src="https://github.com/TroubieD3v/RLS-Sentinel/raw/main/docs/assets/demo.gif" alt="RLS Sentinel demo" width="100%">
+  <p><b>PhotoFinish</b>: a coupon race against the demo shop. Trials arrive live, and the verdict is VIOLATED with the timeline of one race and the rule that broke.</p>
+  <img src="https://github.com/TroubieD3v/PhotoFinish/raw/main/docs/demo.gif" alt="PhotoFinish demo" width="100%">
 </details>
 
 <h3 align="center">Toolbox</h3>
@@ -132,5 +151,6 @@
 | Security of LLM apps and AI agents | [OWASP GenAI: LLM and Agentic Top 10](https://genai.owasp.org/) | AgentShield |
 | Dependency risk and SBOMs | [OSV](https://osv.dev/) · [OpenSSF](https://openssf.org/) | SupplyChain Radar |
 | Multi-tenant isolation in PostgreSQL | [Row security policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) | RLS Sentinel |
+| Race conditions and HTTP/2 | [Smashing the state machine](https://portswigger.net/research/smashing-the-state-machine) | PhotoFinish |
 
 <p align="center"><i>Fixes that hold, and tests that prove they do.</i></p>
